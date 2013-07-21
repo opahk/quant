@@ -1,4 +1,12 @@
 Quant::Application.routes.draw do
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  ActiveAdmin.routes(self)
+
+  resources :body_compositions, only: :index
+  resources :weekly_body_compositions, only: :index
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +47,7 @@ Quant::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
